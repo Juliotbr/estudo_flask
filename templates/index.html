@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Bloco de Notas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Minhas Anotações</h1>
@@ -16,7 +18,11 @@
 
     <ul>
         {% for nota in notas %}
-            <li>{{ nota.conteudo }}</li>
+            <li>
+                {{ nota.conteudo }} 
+                <a href="/editar/{{ nota.id }}" style="color: blue; text-decoration: none; margin-left: 10px;">[ Editar ]</a>
+                <a href="/deletar/{{ nota.id }}" style="color: red; text-decoration: none; margin-left: 10px;">[ Deletar ]</a>
+            </li>
         {% else %}
             <li>Nenhuma anotação salva ainda.</li>
         {% endfor %}

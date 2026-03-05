@@ -1,0 +1,89 @@
+html {
+    background-color: #5d5da1;
+}
+
+/*  */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #8787a7;
+    color: #333;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;   
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Estiliza o formulário e o input */
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: gold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 20px 0;
+}
+
+/* Estiliza a lista de anotações */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #75af99;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #3498db;
+}
+
+/* Container para agrupar os botões de ação na direita */
+.acoes a {
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-editar {
+    color: #f39c12;
+}
+
+.btn-deletar {
+    color: #e74c3c;
+}

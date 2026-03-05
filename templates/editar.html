@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Anotação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Editar Anotação</h1>
+    
+    <form action="/editar/{{ nota.id }}" method="POST">
+        <input type="text" name="conteudo" value="{{ nota.conteudo }}" required>
+        <button type="submit">Atualizar Nota</button>
+    </form>
+
+    <br>
+    <a href="/">Voltar sem salvar</a>
+</body>
+</html>
