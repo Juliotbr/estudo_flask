@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Bloco de Notas</title>
+</head>
+<body>
+    <h1>Minhas Anotações</h1>
+    
+    <form action="/" method="POST">
+        <input type="text" name="conteudo" placeholder="Digite sua anotação aqui..." required>
+        <button type="submit">Salvar Nota</button>
+    </form>
+
+    <hr>
+
+    <ul>
+        {% for nota in notas %}
+            <li>{{ nota.conteudo }}</li>
+        {% else %}
+            <li>Nenhuma anotação salva ainda.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
