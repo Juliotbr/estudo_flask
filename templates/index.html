@@ -9,9 +9,29 @@
 <body>
     <h1>Minhas Anotações</h1>
     
-    <form action="/" method="POST">
-        <input type="text" name="conteudo" placeholder="Digite sua anotação aqui..." required>
-        <button type="submit">Salvar Nota</button>
+    <div style="text-align: center; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px;">
+        <a href="/categorias" style="color: #3498db; text-decoration: none; font-weight: bold;">⚙️ Categorias</a>
+        <a href="/equipamentos" style="color: #2ecc71; text-decoration: none; font-weight: bold;">🔧 Equipamentos</a>
+    </div>
+    
+    <form action="/" method="POST" style="flex-wrap: wrap;">
+        <input type="text" name="conteudo" placeholder="Digite sua anotação..." required style="min-width: 100%;">
+        
+        <select name="categoria_id" required style="flex: 1; padding: 10px;">
+            <option value="">Selecione a Categoria...</option>
+            {% for cat in categorias %}
+                <option value="{{ cat.id }}">{{ cat.nome }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="equipamento_id" style="flex: 1; padding: 10px;">
+            <option value="">Sem equipamento (Opcional)</option>
+            {% for eq in equipamentos %}
+                <option value="{{ eq.id }}">{{ eq.nome }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Salvar</button>
     </form>
 
     <hr>
@@ -19,12 +39,21 @@
     <ul>
         {% for nota in notas %}
             <li>
-                {{ nota.conteudo }} 
-                <a href="/editar/{{ nota.id }}" style="color: blue; text-decoration: none; margin-left: 10px;">[ Editar ]</a>
-                <a href="/deletar/{{ nota.id }}" style="color: red; text-decoration: none; margin-left: 10px;">[ Deletar ]</a>
+                <div style="display: flex; flex-direction: column;">
+                    <span><strong>[{{ nota.categoria.nome }}]</strong> {{ nota.conteudo }}</span>
+                    
+                    {% if nota.equipamento %}
+                        <small style="color: gray; margin-top: 5px;">📍 Usando: {{ nota.equipamento.nome }}</small>
+                    {% endif %}
+                </div>
+                
+                <div class="acoes">
+                    <a href="/editar/{{ nota.id }}" class="btn-editar">Editar</a>
+                    <a href="/deletar/{{ nota.id }}" class="btn-deletar">Deletar</a>
+                </div>
             </li>
         {% else %}
-            <li>Nenhuma anotação salva ainda.</li>
+            <li style="justify-content: center; border-left: none;">Nenhuma anotação salva ainda.</li>
         {% endfor %}
     </ul>
 </body>

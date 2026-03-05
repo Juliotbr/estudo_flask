@@ -2,19 +2,37 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Anotação</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Editar Anotação</h1>
     
-    <form action="/editar/{{ nota.id }}" method="POST">
-        <input type="text" name="conteudo" value="{{ nota.conteudo }}" required>
-        <button type="submit">Atualizar Nota</button>
+    <form action="/editar/{{ nota.id }}" method="POST" style="flex-wrap: wrap;">
+        <input type="text" name="conteudo" value="{{ nota.conteudo }}" required style="min-width: 100%;">
+        
+        <select name="categoria_id" required style="flex: 1; padding: 10px;">
+            {% for cat in categorias %}
+                <option value="{{ cat.id }}" {% if cat.id == nota.categoria_id %}selected{% endif %}>
+                    {{ cat.nome }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <select name="equipamento_id" style="flex: 1; padding: 10px;">
+            <option value="">Sem equipamento (Opcional)</option>
+            {% for eq in equipamentos %}
+                <option value="{{ eq.id }}" {% if eq.id == nota.equipamento_id %}selected{% endif %}>
+                    {{ eq.nome }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" style="min-width: 100%; margin-top: 10px;">Atualizar Nota</button>
     </form>
 
-    <br>
-    <a href="/">Voltar sem salvar</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/" style="color: gray; text-decoration: none;">Cancelar e voltar</a>
+    </div>
 </body>
 </html>

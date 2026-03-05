@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Categorias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/" style="text-decoration: none; color: #3498db; font-weight: bold;">&larr; Voltar para o Início</a>
+    
+    <h1 style="margin-top: 20px;">Gerenciar Categorias</h1>
+    
+    <form action="/categorias" method="POST">
+        <input type="text" name="nome_categoria" placeholder="Nome da nova categoria..." required>
+        <button type="submit">Adicionar Categoria</button>
+    </form>
+
+    <hr>
+
+    <ul>
+        {% for cat in categorias %}
+            <li>
+                <span><strong>{{ cat.nome }}</strong></span>
+                <div class="acoes">
+                    <a href="/deletar_categoria/{{ cat.id }}" class="btn-deletar">Deletar</a>
+                </div>
+            </li>
+        {% else %}
+            <li style="justify-content: center; border-left: none;">Nenhuma categoria salva.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

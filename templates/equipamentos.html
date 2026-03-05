@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Equipamentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/" style="text-decoration: none; color: #3498db; font-weight: bold;">&larr; Voltar para o Início</a>
+    <h1 style="margin-top: 20px;">Gerenciar Equipamentos</h1>
+    
+    <form action="/equipamentos" method="POST">
+        <input type="text" name="nome_equipamento" placeholder="Nome do novo equipamento..." required>
+        <button type="submit">Adicionar Equipamento</button>
+    </form>
+    <hr>
+    <ul>
+        {% for eq in equipamentos %}
+            <li>
+                <span><strong>{{ eq.nome }}</strong></span>
+                <div class="acoes">
+                    <a href="/deletar_equipamento/{{ eq.id }}" class="btn-deletar">Deletar</a>
+                </div>
+            </li>
+        {% else %}
+            <li style="justify-content: center; border-left: none;">Nenhum equipamento salvo.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
