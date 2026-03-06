@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <a href="/" style="text-decoration: none; color: #3498db; font-weight: bold;">&larr; Voltar para o Início</a>
+    <a href="/" style="text-decoration: none; color: #000000; font-weight: bold;">&larr; Voltar para o Início</a>
     
     <h1 style="margin-top: 20px;">Gerenciar Categorias</h1>
     
@@ -30,5 +30,6 @@
             <li style="justify-content: center; border-left: none;">Nenhuma categoria salva.</li>
         {% endfor %}
     </ul>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

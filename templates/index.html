@@ -10,8 +10,8 @@
     <h1>Minhas Anotações</h1>
     
     <div style="text-align: center; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px;">
-        <a href="/categorias" style="color: #3498db; text-decoration: none; font-weight: bold;">⚙️ Categorias</a>
-        <a href="/equipamentos" style="color: #2ecc71; text-decoration: none; font-weight: bold;">🔧 Equipamentos</a>
+        <a href="/categorias" style="color: #000000; text-decoration: none; font-weight: bold;">⚙️ Categorias</a>
+        <a href="/equipamentos" style="color: #000000; text-decoration: none; font-weight: bold;">🔧 Equipamentos</a>
     </div>
     
     <form action="/" method="POST" style="flex-wrap: wrap;">
@@ -56,5 +56,6 @@
             <li style="justify-content: center; border-left: none;">Nenhuma anotação salva ainda.</li>
         {% endfor %}
     </ul>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
